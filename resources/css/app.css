@@ -1,10 +1,11 @@
-// Variables
-@import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+
+
+
+
 
 /* universal */
+
 
 body {
     font-family: Helvetica, "Microsoft YaHei", Arial, sans-serif;
