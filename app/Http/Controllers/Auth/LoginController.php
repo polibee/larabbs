@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class LoginController extends Controller
 {
@@ -26,7 +29,17 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
-
+    protected function validateLogin(request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|string',
+            'password' => 'required|string',
+            'captcha' => 'required|captcha',
+        ], [
+            'captcha.required' => '验证码不能为空',
+            'captcha.captcha' => '请输入正确的验证码',
+        ]);
+    }
     /**
      * Create a new controller instance.
      *
